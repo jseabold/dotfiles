@@ -129,8 +129,6 @@ fi
 
 # adding R path for rpy installation
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib64/R/bin
-# adding local/lib to path for openblas
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/skipper/.local/lib
 
 if [ -d /usr/local/stata11 ]; then
     export PATH=$PATH:/usr/local/stata11
@@ -226,10 +224,8 @@ export WAFDIR=/home/skipper/src/waf-1.7.9
 eval "$(grunt --completion=bash)"
 export CHROME_BIN=chromium-browser
 
-# for numpy/scipy
-export LAPACK=~/.local/lib/libopenblas.a
-export BLAS=~/.local/lib/libopenblas.a
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib
-
 # for stata
 export PDFVIEWER=okular
+
+# for R
+R_HISTFILE=~/.Rhistory
