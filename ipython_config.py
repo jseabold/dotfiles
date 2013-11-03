@@ -24,13 +24,9 @@ c.TerminalIPythonApp.exec_lines = [
         'import numpy as np',
         'np.set_printoptions(suppress=True)',
         'import statsmodels.api as sm',
-        'import pandas as pd',
-        'from scipy import stats, optimize',
-        'import sklearn',
-        'import matplotlib.pyplot as plt',
-        'import patsy',
-"""def dropif(self, col, cond):
-    return self.ix[~eval("self['%s']"%col +cond)]"""]
+        'import pandas',
+        'from matplotlib import interactive; interactive(True)',
+        'import matplotlib.pyplot as plt']
 
 # Enable GUI event loop integration ('qt', 'wx', 'gtk').
 # c.TerminalIPythonApp.gui = None
@@ -58,7 +54,8 @@ c.TerminalIPythonApp.exec_lines = [
 # c.TerminalIPythonApp.quick = False
 
 # A list of dotted module names of IPython extensions to load.
-# c.TerminalIPythonApp.extensions = []
+c.TerminalIPythonApp.extensions = [
+        'line_profiler_ext']
 
 # Whether to install the default config files into the profile dir. If a new
 # profile is being created, and IPython contains config files for that profile,
@@ -138,7 +135,8 @@ c.TerminalIPythonApp.exec_lines = [
 # c.TerminalInteractiveShell.readline_omit__names = 2
 
 #
-# c.TerminalInteractiveShell.prompt_in2 = '   .\\D.: '
+#c.TerminalInteractiveShell.prompt_in2 = '.\\D.: '
+c.PromptManager.in2_template = '.\\D.: '
 
 #
 # c.TerminalInteractiveShell.separate_out = ''
