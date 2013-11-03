@@ -221,8 +221,11 @@ alias edit=gvim
 export WAFDIR=/home/skipper/src/waf-1.7.9
 
 # grunt-cli tab auto-completion
-if 'grunt' ; then
+if grunt 2>/dev/null ; then
     eval "$(grunt --completion=bash)"
+else
+    echo "grunt-cli is not installed"
+fi
 
 export CHROME_BIN=chromium-browser
 
