@@ -228,4 +228,5 @@ export CHROME_BIN=chromium-browser
 export PDFVIEWER=okular
 
 # for R
-R_HISTFILE=~/.Rhistory
+export R_HISTFILE=~/.Rhistory
+export R_HISTSIZE='1500'
