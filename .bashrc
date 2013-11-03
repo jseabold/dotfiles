@@ -221,7 +221,9 @@ alias edit=gvim
 export WAFDIR=/home/skipper/src/waf-1.7.9
 
 # grunt-cli tab auto-completion
-eval "$(grunt --completion=bash)"
+if 'grunt' ; then
+    eval "$(grunt --completion=bash)"
+
 export CHROME_BIN=chromium-browser
 
 # for stata
@@ -230,3 +232,5 @@ export PDFVIEWER=okular
 # for R
 export R_HISTFILE=~/.Rhistory
 export R_HISTSIZE='1500'
+# get rid of obnoxious save confirmation
+alias R='R --no-save'
