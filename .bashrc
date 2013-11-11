@@ -237,3 +237,9 @@ export R_HISTFILE=~/.Rhistory
 export R_HISTSIZE='1500'
 # get rid of obnoxious save confirmation
 alias R='R --no-save'
+
+if [ -d ~/src/scripts/bin/ ]; then
+    export PATH=$PATH:~/src/scripts/bin/
+fi
+
+alias ubuntuone='ubuntuone-control-panel-qt --with-icon &'
