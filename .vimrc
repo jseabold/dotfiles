@@ -41,5 +41,6 @@ call pathogen#infect()
 noremap <F9> <Esc>:syntax sync fromstart<CR>
 inoremap <F9> <C-o>:syntax sync fromstart<CR>
 
+" for latex-suite
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
