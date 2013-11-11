@@ -27,6 +27,7 @@ c = get_config()
 c.InteractiveShellApp.exec_lines = [
         'Exit = exit',
         'from scipy import stats',
+        'from scipy import optimize',
         'import numpy as np',
         'np.set_printoptions(suppress=True)',
         'from matplotlib import interactive; interactive(True)',
