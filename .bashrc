@@ -248,3 +248,8 @@ alias ubuntuone='ubuntuone-control-panel-qt --with-icon &'
 # AltGr -> Alt
 xmodmap -e "clear mod5"
 xmodmap -e "keycode 108 = Alt_L"
+
+# Bashmarks
+if [ -d ~/src/bashmarks/ ]; then
+    source ~/src/bashmarks/bashmarks.sh
+fi
