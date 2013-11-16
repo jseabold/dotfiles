@@ -243,3 +243,8 @@ if [ -d ~/src/scripts/bin/ ]; then
 fi
 
 alias ubuntuone='ubuntuone-control-panel-qt --with-icon &'
+
+# UK Keyboard remappings
+# AltGr -> Alt
+xmodmap -e "clear mod5"
+xmodmap -e "keycode 108 = Alt_L"
