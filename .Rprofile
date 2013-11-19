@@ -4,9 +4,8 @@ r["CRAN"] <- "http://cran.us.r-project.org"
 options(repos = r)
 rm(r)
 
-options(prompt="R> ", digits=4, show.signif.stars=FALSE)
-
-options("pdfviewer"="okular")
+options(prompt="R> ", digits=4, show.signif.stars=FALSE, "pdfviewer"="okular",
+        error=utils::dump.frames)
 
 # have command history available. requires adding
 # R_HISTFILE=~/.Rhistory
