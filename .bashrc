@@ -237,6 +237,9 @@ export R_HISTSIZE='1500'
 # get rid of obnoxious save confirmation
 alias R='R --no-save'
 
+# for Rpy2
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/R/lib
+
 if [ -d ~/src/scripts/bin/ ]; then
     export PATH=$PATH:~/src/scripts/bin/
 fi
