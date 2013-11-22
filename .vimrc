@@ -5,6 +5,13 @@ set tabstop=4
 set autoindent
 set softtabstop=4 "Multiple spaces are seen as tabstops so <BS> deletes the four together"
 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+" show matching parens
+set showmatch
+set wildignore=*.swp,*.bak,*pyc
+set title
+
 if has("autocmd")
   filetype plugin indent on
 endif
@@ -44,3 +51,17 @@ inoremap <F9> <C-o>:syntax sync fromstart<CR>
 " for latex-suite
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
+
+" Sudo to write
+cmap w!! w !sudo tee % >/dev/null
+
+let mapleader = ","
+
+" Open URL in browser
+function! Browser ()
+   let line = getline (".")
+   let line = matchstr (line, "http[^   ]*")
+   exec "!chromium-browser ".line
+endfunction
+
+map <Leader>w :call Browser()<CR>
