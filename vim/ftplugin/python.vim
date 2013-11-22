@@ -39,6 +39,8 @@ let g:gist_open_browser_after_post = 1
 
 " Remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
+" Make sure columnwidth takes into account line numbers used
+let &columns = float2nr(log10(line("$"))) + 82
 
 " allow pythoncomplete to work
 set omnifunc=pythoncomplete#Complete
