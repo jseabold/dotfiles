@@ -130,7 +130,7 @@ fi
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib64/R/bin
 
 if [ -d /usr/local/stata11 ]; then
-    export PATH=$PATH:/usr/local/stata11
+    export PATH=$PATH:/usr/local/stata11:~/src/.dropbox-dist
 fi
 
 if [ -d /opt/mongo ]; then
@@ -163,6 +163,7 @@ export PATH=/home/skipper/src/peg-multimarkdown/scripts:$PATH
 export PATH=$PATH:/home/skipper/.local/bin
 
 alias pyserv='python -m SimpleHTTPServer 8888'
+alias pyftp='python -m pyftpdlib'
 
 #pushd to directory for python package
 function pushdp {
