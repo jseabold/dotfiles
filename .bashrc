@@ -164,6 +164,7 @@ export PATH=$PATH:/home/skipper/.local/bin
 
 alias pyserv='python -m SimpleHTTPServer 8888'
 alias pyftp='python -m pyftpdlib'
+alias scanftp='sudo python ~/src/scripts/ftpscan_server.py'
 
 #pushd to directory for python package
 function pushdp {
@@ -256,3 +257,6 @@ xmodmap -e "keycode 108 = Alt_L"
 if [ -d ~/src/bashmarks/ ]; then
     source ~/src/bashmarks/bashmarks.sh
 fi
+
+# last time anacron weekly was run
+alias lastanacron="sudo cat /var/spool/anacron/cron.weekly"
