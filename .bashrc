@@ -259,4 +259,11 @@ if [ -d ~/src/bashmarks/ ]; then
 fi
 
 # last time anacron weekly was run
-alias lastanacron="sudo cat /var/spool/anacron/cron.weekly"
+function lastanacron {
+    echo "hourly"
+    stat --format "%y" /var/spool/anacron/cron.hourly
+    echo "daily"
+    stat --format "%y" /var/spool/anacron/cron.daily
+    echo "weekly"
+    stat --format "%y" /var/spool/anacron/cron.weekly
+}
