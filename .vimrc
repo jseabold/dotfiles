@@ -5,6 +5,9 @@ set tabstop=4
 set autoindent
 set softtabstop=4 "Multiple spaces are seen as tabstops so <BS> deletes the four together"
 
+" windows remain the same size after a split
+set equalalways
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 " show matching parens
