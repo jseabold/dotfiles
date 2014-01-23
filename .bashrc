@@ -267,3 +267,5 @@ function lastanacron {
     echo "weekly"
     stat --format "%y" /var/spool/anacron/cron.weekly
 }
+
+alias version='lsb_release -a'
