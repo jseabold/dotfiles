@@ -168,7 +168,7 @@ alias scanftp='sudo python ~/src/scripts/ftpscan_server.py'
 
 #pushd to directory for python package
 function pushdp {
-    pushd `python -c "import os; import $1; print os.path.dirname($1.__file__)"`
+pushd `python -c "import os; import $1; print (os.path.dirname($1.__file__))"`
 }
 
 function rmpy {
