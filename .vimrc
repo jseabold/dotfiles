@@ -28,7 +28,7 @@ endif
 :map xc :%s/\n/, /g<CR>
 "Type Cc on a bunch of commits and it reverse them and turns them into
 "cherry-picks
-:map cc :%s/\(^\*\s\)\(.\{7}\)\(.*\)/git cherry-pick \2/<CR> :g/^/m0<CR>
+:map cc :%s/\(^\)\(.\{7}\)\(.*\)/git cherry-pick \2/<CR> :g/^/m0<CR>
 "xz truncates the line at the last space before or at 79 characters
 :map zx :s/\(^.\{,78\}\)\s/\1\r <CR>j
 
@@ -68,3 +68,8 @@ function! Browser ()
 endfunction
 
 map <Leader>w :call Browser()<CR>
+
+" syntastic
+" 203 whitespace before :
+let g:syntatsic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = '--ignore="E203,E226,E121"'
