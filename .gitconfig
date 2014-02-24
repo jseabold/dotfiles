@@ -1,0 +1,15 @@
+[user]
+	email = jsseabold@gmail.com
+	name = Skipper Seabold
+[alias]
+	recent = log -n 10 --oneline --graph
+	st = status -s
+    co = checkout
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+[color]
+	ui = true
+[merge]
+	log = true
+	summary = true
+[core]
+	editor = gvim --nofork
