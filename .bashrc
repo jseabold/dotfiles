@@ -163,7 +163,7 @@ export PATH=/home/skipper/src/peg-multimarkdown/scripts:$PATH
 export PATH=$PATH:/home/skipper/.local/bin
 
 alias pyserv='python -m SimpleHTTPServer 8888'
-alias pyftp='python -m pyftpdlib'
+alias pyftp='python -m pyftpdlib -w'
 alias scanftp='sudo python ~/src/scripts/ftpscan_server.py'
 
 #pushd to directory for python package
