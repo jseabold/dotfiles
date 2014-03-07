@@ -269,3 +269,8 @@ function lastanacron {
 }
 
 alias version='lsb_release -a'
+
+function findends {
+    echo
+    find . -type f -name *.$1
+}
