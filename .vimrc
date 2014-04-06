@@ -73,3 +73,11 @@ map <Leader>w :call Browser()<CR>
 " 203 whitespace before :
 let g:syntatsic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--ignore="E203,E226,E121"'
+
+" vim-jedi
+let g:jedi#use_splits_not_buffers = "left"
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = 0
+
+" ii gets you out of edit and into normal mode
+imap ii <Esc>
