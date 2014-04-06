@@ -269,3 +269,10 @@ function lastanacron {
 }
 
 alias version='lsb_release -a'
+
+if [ -d ~/.anacron ]; then
+    function lastuseranacron {
+    echo "daily"
+    stat --format "%y" ~/.anacron/cron.daily
+    }
+fi
