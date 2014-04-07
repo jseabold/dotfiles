@@ -81,3 +81,13 @@ let g:jedi#show_call_signatures = 0
 
 " ii gets you out of edit and into normal mode
 imap ii <Esc>
+
+" font stuff, desktop can handle smaller font
+let hostname = substitute(system('hostname'), '\n', '', '')
+if hostname == "skipper-desktop"
+    if has("gui_running")
+    if has("gui_gtk2")
+        set guifont=Monospace\ 9
+    endif
+    endif
+endif
