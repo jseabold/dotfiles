@@ -286,3 +286,5 @@ function findends {
 }
 
 alias nosefast="nosetests -a '!slow'"
+
+export X12PATH="/home/skipper/src/x12arima"
