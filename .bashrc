@@ -75,7 +75,7 @@ fi
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -CF --color=auto'
+    alias ls='ls -hCF --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -288,3 +288,4 @@ function findends {
 alias nosefast="nosetests -a '!slow'"
 
 export X12PATH="/home/skipper/src/x12arima"
+export X13PATH="/home/skipper/src/x13arima"
