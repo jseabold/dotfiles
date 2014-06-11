@@ -91,3 +91,6 @@ if hostname == "skipper-desktop"
     endif
     endif
 endif
+
+" better indents for HTML
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
