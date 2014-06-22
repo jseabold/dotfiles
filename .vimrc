@@ -93,4 +93,4 @@ if hostname == "skipper-desktop"
 endif
 
 " better indents for HTML
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType html,mustache setlocal shiftwidth=2 tabstop=2
