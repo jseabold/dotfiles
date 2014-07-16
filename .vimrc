@@ -21,16 +21,16 @@ endif
 
 "Hitting zz in normal mode will remove all consecutive whitespace in a line
 "and make it single whitespace
-:map zz :s![^ ]\zs  \+! !g<CR>
+:map <leader>zz :s![^ ]\zs  \+! !g<CR>
 "Replace all consecutive whitespace, with commas whitespace
-:map xx :s![^ ]\zs \+!, !g<CR>
+:map <leader>xx :s![^ ]\zs \+!, !g<CR>
 "Take a 'column' of data and replace line endings with comma-delimited
-:map xc :%s/\n/, /g<CR>
+:map <leader>xc :%s/\n/, /g<CR>
 "Type Cc on a bunch of commits and it reverse them and turns them into
 "cherry-picks
-:map cc :%s/\(^\)\(.\{7}\)\(.*\)/git cherry-pick \2/<CR> :g/^/m0<CR>
+:map <leader>cc :%s/\(^\)\(.\{7}\)\(.*\)/git cherry-pick \2/<CR> :g/^/m0<CR>
 "xz truncates the line at the last space before or at 79 characters
-:map zx :s/\(^.\{,78\}\)\s/\1\r <CR>j
+:map <leader>zx :s/\(^.\{,78\}\)\s/\1\r <CR>j
 
 "Go to the last whitespace before the line above the cursor and enter
 "a carraige return. Needs to be at beginning of line. not sure why i can't
@@ -93,4 +93,9 @@ if hostname == "skipper-desktop"
 endif
 
 " better indents for HTML
-autocmd FileType html,mustache setlocal shiftwidth=2 tabstop=2
+au BufNewFile,BufRead *.mustache setlocal ft=html
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+
+" hack to add Cython to python ft instead of pyrex
+" enabled code folding in python_editing.vim
+au BufNewFile,BufRead *.pyx setlocal ft=python
