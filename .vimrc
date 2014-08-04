@@ -99,3 +99,6 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2
 " hack to add Cython to python ft instead of pyrex
 " enabled code folding in python_editing.vim
 au BufNewFile,BufRead *.pyx setlocal ft=python
+
+" cvim
+let g:C_UseTool_cmake = 'yes'
