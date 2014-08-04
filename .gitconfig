@@ -14,3 +14,4 @@
 	summary = true
 [core]
 	editor = gvim --nofork
+	fileMode = false
