@@ -120,6 +120,10 @@ alias ll='ls -l'
 alias la='ls -A'
 #alias l='ls -CF'
 
+# let make always run in parallel
+cpu_count=`nproc`
+alias make='make -j $cpu_count'
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -138,6 +142,12 @@ fi
 
 if [ -d /opt/mongo ]; then
     export PATH=$PATH:/opt/mongo/bin
+fi
+
+# postgres
+
+if [ -d /usr/lib/postgresql/9.3/bin ]; then
+    export PATH=$PATH:/usr/lib/postgresql/9.3/bin
 fi
 
 #export PATH=/home/skipper/src/julia:$PATH
@@ -225,11 +235,41 @@ alias edit=gvim
 export WAFDIR=/home/skipper/src/waf-1.7.9
 
 # grunt-cli tab auto-completion
-if grunt 2>/dev/null ; then
-    eval "$(grunt --completion=bash)"
-else
-    echo "grunt-cli is not installed"
-fi
+# eval "$(grunt --completion=bash)"
+
+# Search the current directory and all parent directories for a gruntfile.
+function _grunt_gruntfile() {
+  local curpath="$PWD"
+  while [[ "$curpath" ]]; do
+    for gruntfile in "$curpath/"{G,g}runtfile.{js,coffee}; do
+      if [[ -e "$gruntfile" ]]; then
+        echo "$gruntfile"
+        return
+      fi
+    done                                                                         
+    curpath="${curpath%/*}"                                                      
+  done                                                                           
+  return 1                                                                       
+}                                                                                
+                                                                                 
+# Enable bash autocompletion.                                                    
+function _grunt_completions() {                                                  
+  # The currently-being-completed word.                                          
+  local cur="${COMP_WORDS[COMP_CWORD]}"                                          
+  # The current gruntfile, if it exists.                                         
+  local gruntfile="$(_grunt_gruntfile)"                                          
+  # The current grunt version, available tasks, options, etc.                    
+  local gruntinfo="$(grunt --version --verbose 2>/dev/null)"                     
+  # Options and tasks.                                                           
+  local opts="$(echo "$gruntinfo" | awk '/Available options: / {$1=$2=""; print $0}')"
+  local compls="$(echo "$gruntinfo" | awk '/Available tasks: / {$1=$2=""; print $0}')"
+  # Only add -- or - options if the user has started typing -
+  [[ "$cur" == -* ]] && compls="$compls $opts"
+  # Tell complete what stuff to show.
+  COMPREPLY=($(compgen -W "$compls" -- "$cur"))
+}
+
+complete -o default -F _grunt_completions grunt
 
 export CHROME_BIN=chromium-browser
 
@@ -289,3 +329,64 @@ alias nosefast="nosetests -a '!slow'"
 
 export X12PATH="/home/skipper/src/x12arima"
 export X13PATH="/home/skipper/src/x13arima"
+
+function wakeremote {
+    file="/home/skipper/.macaddress"
+    macaddress=$(cat $file)
+    wakeonlan -i 192.168.1.3 $macaddress
+}
+
+# virtualenvwrapper
+source ~/.local/bin/virtualenvwrapper.sh
+export WORKON_HOME=/home/skipper/.virtualenvs
+
+# building numpy/scipy reliably
+export LAPACK=~/.local/lib/libopenblas.a
+export BLAS=~/.local/lib/libopenblas.a
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib
+
+# work stuff
+export DP=/home/skipper/datapad
+export DP_WEB=$DP/datapad-web
+export DP_BADGER=$DP/badger-skipper
+export DP_BURROW=$DP/burrow
+export SELENIUM_ROOT=$DP/code/selenium
+
+export DB_NAME='test'
+
+export DATAPAD_ENV=/home/skipper/.virtualenvs/datapad
+
+source $HOME/src/scripts/run_stack.sh
+source $HOME/.postgres
+source $HOME/.aws
+
+export DATAPAD_API_TOKEN="eyJhbGciOiJIUzI1NiJ9.eyJ0b2tlbiI6IjYyODEwZmJjZDAwMzRmNGRiYmQ2MzQxZjg4YTc0MjQyIn0.qGtLbkxPT2tu3kcF89x4BoXtoPz236XR_hIECfizQxI"
+
+# JAVA/IDE stuff
+export JAVA_HOME=~/src/jdk1.8.0_20/
+export GROOVY_HOME=~/src/groovy-2.3.6
+if [ -d ~/src/idea-IC-135.1230 ]; then
+    export PATH=$PATH:~/src/idea-IC-135.1230/bin
+fi
+if [ -d ~/src/groovy-2.3.6 ]; then
+    export PATH=$PATH:~/src/groovy-2.3.6/bin
+fi
+
+# https://gist.github.com/clneagu/7990272
+check_venv() {
+    if [ -e .venv ]; then
+        env=`cat .venv`
+        if [ "$env" != "${VIRTUAL_ENV##/}" ]; then
+            echo "Found .venv in directory. Calling: workon ${env}"
+            workon $env
+        fi
+    fi
+
+}
+
+venv_cd() {
+    builtin cd "$@" && check_venv
+}
+
+check_venv
+alias cd="venv_cd"
