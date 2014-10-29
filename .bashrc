@@ -409,4 +409,4 @@ function stopwatch(){
 }
 
 export SCALA_HOME=~/.local/share/scala
-export PATH=$PATH:~/src/scala-2.11.2/bin
+export PATH=$PATH:~/src/scala-2.11.2/bin:~/src/sbt/bin
