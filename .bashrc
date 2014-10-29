@@ -136,6 +136,9 @@ fi
 # adding R path for rpy installation
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib64/R/bin
 
+# some library code is installed here
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
+
 if [ -d /usr/local/stata11 ]; then
     export PATH=$PATH:/usr/local/stata11:~/src/.dropbox-dist
 fi
@@ -390,3 +393,20 @@ venv_cd() {
 
 check_venv
 alias cd="venv_cd"
+
+function countdown(){
+   date1=$((`date +%s` + $1)); 
+   while [ "$date1" -ne `date +%s` ]; do 
+     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+   done
+}
+
+function stopwatch(){
+  date1=`date +%s`; 
+   while true; do 
+    echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r"; 
+   done
+}
+
+export SCALA_HOME=~/.local/share/scala
+export PATH=$PATH:~/src/scala-2.11.2/bin
