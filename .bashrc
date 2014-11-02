@@ -348,22 +348,8 @@ export LAPACK=~/.local/lib/libopenblas.a
 export BLAS=~/.local/lib/libopenblas.a
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib
 
-# work stuff
-export DP=/home/skipper/datapad
-export DP_WEB=$DP/datapad-web
-export DP_BADGER=$DP/badger-skipper
-export DP_BURROW=$DP/burrow
-export SELENIUM_ROOT=$DP/code/selenium
-
-export DB_NAME='test'
-
-export DATAPAD_ENV=/home/skipper/.virtualenvs/datapad
-
-source $HOME/src/scripts/run_stack.sh
 source $HOME/.postgres
 source $HOME/.aws
-
-export DATAPAD_API_TOKEN="eyJhbGciOiJIUzI1NiJ9.eyJ0b2tlbiI6IjYyODEwZmJjZDAwMzRmNGRiYmQ2MzQxZjg4YTc0MjQyIn0.qGtLbkxPT2tu3kcF89x4BoXtoPz236XR_hIECfizQxI"
 
 # JAVA/IDE stuff
 export JAVA_HOME=~/src/jdk1.8.0_20/
