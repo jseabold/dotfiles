@@ -134,7 +134,13 @@ fi
 #export PYTHONPATH=/home/skipper/src/nbconvert/
 
 # adding R path for rpy installation
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib64/R/bin
+if [ -d /usr/local/lib64/R/bin ]; then
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib64/R/bin
+elif [ -d ~/.local/lib/R/bin ]; then
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib/R/bin:~/.local/lib/R/lib64/R/lib/
+    export PATH=$PATH:~/.local/lib/R/bin
+fi
+
 
 # some library code is installed here
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
@@ -410,3 +416,5 @@ function stopwatch(){
 
 export SCALA_HOME=~/.local/share/scala
 export PATH=$PATH:~/src/scala-2.11.2/bin:~/src/sbt/bin
+
+export PATH=$PATH:~/src/neo4j-community-2.1.5/bin
