@@ -415,6 +415,4 @@ function stopwatch(){
 }
 
 export SCALA_HOME=~/.local/share/scala
-export PATH=$PATH:~/src/scala-2.11.2/bin:~/src/sbt/bin
-
-export PATH=$PATH:~/src/neo4j-community-2.1.5/bin
+export PATH=$PATH:~/src/scala/bin:~/src/scala-2.11.2/bin:~/src/sbt/bin:~/src/neo4j-community-2.1.5/bin/
