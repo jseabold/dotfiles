@@ -3,15 +3,16 @@
 	name = Skipper Seabold
 [alias]
 	recent = log -n 10 --oneline --graph
-	st = status -s
+	st = status -s -uno
     co = checkout
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
     safemerge = merge --ff-only
+    tracked = status -uno
 [color]
 	ui = true
 [merge]
 	log = true
 	summary = true
 [core]
-	editor = vim 
+	editor = vim -f
 	fileMode = false
