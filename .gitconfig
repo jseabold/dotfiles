@@ -13,5 +13,5 @@
 	log = true
 	summary = true
 [core]
-	editor = gvim --nofork
+	editor = vim 
 	fileMode = false
