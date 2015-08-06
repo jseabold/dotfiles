@@ -355,7 +355,7 @@ export BLAS=~/.local/lib/libopenblas.a
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib
 
 source $HOME/.postgres
-source $HOME/.aws
+source $HOME/.awskeys
 
 # JAVA/IDE stuff
 export JAVA_HOME=~/src/jdk1.8.0_20/
