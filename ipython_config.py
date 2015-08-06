@@ -34,6 +34,7 @@ c.InteractiveShellApp.exec_lines = [
         'import matplotlib.pyplot as plt',
         'import pandas as pd',
         'import statsmodels.api as sm',
+        'import seaborn as sns',
         ]
 
 # Enable GUI event loop integration with any of ('glut', 'gtk', 'gtk3', 'none',

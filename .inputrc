@@ -1,6 +1,10 @@
 $include /etc/inputrc
 set editing-mode vi
 set keymap vi-command
+set meta-flag on
+set input-meta on
+set convert-meta off
+set output-meta on
 
 set bell-style none
 $if mode=vi
