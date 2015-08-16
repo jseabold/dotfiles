@@ -134,7 +134,13 @@ fi
 #export PYTHONPATH=/home/skipper/src/nbconvert/
 
 # adding R path for rpy installation
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib64/R/bin
+if [ -d /usr/local/lib64/R/bin ]; then
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib64/R/bin
+elif [ -d ~/.local/lib/R/bin ]; then
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib/R/bin:~/.local/lib/R/lib64/R/lib/
+    export PATH=$PATH:~/.local/lib/R/bin
+fi
+
 
 # some library code is installed here
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
@@ -349,7 +355,7 @@ export BLAS=~/.local/lib/libopenblas.a
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib
 
 source $HOME/.postgres
-source $HOME/.aws
+source $HOME/.awskeys
 
 # JAVA/IDE stuff
 export JAVA_HOME=~/src/jdk1.8.0_20/
@@ -397,3 +403,4 @@ function stopwatch(){
 export SCALA_HOME=~/.local/share/scala
 export PATH=$PATH:~/src/scala/bin:~/src/sbt/bin:~/src/neo4j-community-2.1.5/bin/:~/bin
 
+export PATH=$PATH:~/src/scala/bin:~/src/scala-2.11.2/bin:~/src/sbt/bin:~/src/neo4j-community-2.1.5/bin/:~/bin
