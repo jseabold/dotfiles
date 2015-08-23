@@ -102,3 +102,5 @@ au BufNewFile,BufRead *.pyx setlocal ft=python
 
 " cvim
 let g:C_UseTool_cmake = 'yes'
+" for gx
+let g:netrw_browsex_viewer = "xdg-open"
