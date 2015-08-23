@@ -104,3 +104,10 @@ au BufNewFile,BufRead *.pyx setlocal ft=python
 let g:C_UseTool_cmake = 'yes'
 " for gx
 let g:netrw_browsex_viewer = "xdg-open"
+
+let g:airline_theme='powerlineish'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_section_z=''
+let g:airline#extensions#tabline#enabled = 1
+
