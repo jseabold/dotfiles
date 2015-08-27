@@ -7,6 +7,9 @@ set softtabstop=4 "Multiple spaces are seen as tabstops so <BS> deletes the four
 
 " windows remain the same size after a split
 set equalalways
+" new splits below and to the right
+set splitbelow
+set splitright
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -226,3 +229,5 @@ nnoremap <C-B> <C-B>zz
 
 " dump all the swap files somewhere dark and out of the way
 set directory=~/.vim/swap
+
+" fix split behavior
