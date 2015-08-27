@@ -217,3 +217,9 @@ colorscheme solarized
 
 " delete to null register
 nnoremap <Leader>dd "_dd
+
+" center in the middle of screen after jumping
+nnoremap n nzz
+nnoremap } }zz
+nnoremap <C-F> <C-F>zz
+nnoremap <C-B> <C-B>zz
