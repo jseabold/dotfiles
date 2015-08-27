@@ -107,13 +107,28 @@ au BufNewFile,BufRead *.pxi setlocal ft=python
 
 " cvim
 let g:C_UseTool_cmake = 'yes'
+
+" osx / linux harmony
 if has("unix")
     let s:uname = system("uname -s")
     if s:uname == "Darwin\n"
         " for gx
         let g:netrw_browsex_viewer = "open"
+        " system clipboard
+        vmap <Leader>p :r !pbpaste<CR>
+        nmap <Leader>p :r !pbpaste<CR>
+        vmap <Leader>y :.w !pbcopy<CR><CR>
+        nmap <Leader>y :.w !pbcopy<CR><CR>
+        nmap <Leader>d :.!pbcopy<CR><CR>
     else
         let g:netrw_browsex_viewer = "xdg-open"
+        " copy-paste to system clipboard
+        vmap <Leader>y "+y
+        vmap <Leader>d "+d
+        nmap <Leader>p "+p
+        nmap <Leader>P "+P
+        vmap <Leader>p "+p
+        vmap <Leader>P "+P
     endif
 endif
 
@@ -212,7 +227,6 @@ map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 
 let g:sql_type_default = 'pgsql'
-set clipboard=unnamed
 syntax enable
 set background=dark
 colorscheme solarized
@@ -237,11 +251,7 @@ set mouse=a
 " fast save
 nnoremap <Leader>w :w<CR>
 
-" copy-paste to system clipboard
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
 
+" key mappings for vim-expand-region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
