@@ -255,3 +255,8 @@ nnoremap <Leader>w :w<CR>
 " key mappings for vim-expand-region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
+" jump to end of text you just pasted
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
