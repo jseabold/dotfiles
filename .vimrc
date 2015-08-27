@@ -230,4 +230,5 @@ nnoremap <C-B> <C-B>zz
 " dump all the swap files somewhere dark and out of the way
 set directory=~/.vim/swap
 
-" fix split behavior
+" shameful mouse crutch
+set mouse=a
