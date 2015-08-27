@@ -214,4 +214,6 @@ set clipboard=unnamed
 syntax enable
 set background=dark
 colorscheme solarized
->>>>>>> Completion. Re-map leader. Solarized scheme.
+
+" delete to null register
+nnoremap <Leader>dd "_dd
