@@ -223,3 +223,6 @@ nnoremap n nzz
 nnoremap } }zz
 nnoremap <C-F> <C-F>zz
 nnoremap <C-B> <C-B>zz
+
+" dump all the swap files somewhere dark and out of the way
+set directory=~/.vim/swap
