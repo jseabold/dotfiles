@@ -260,3 +260,8 @@ vmap <C-v> <Plug>(expand_region_shrink)
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
+
+" vsplit
+nnoremap <Leader>v :vsplit<CR>
+"split
+nnoremap <Leader>s :split<CR>
