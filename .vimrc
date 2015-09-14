@@ -117,8 +117,8 @@ if has("unix")
         " system clipboard
         vmap <Leader>p :r !pbpaste<CR>
         nmap <Leader>p :r !pbpaste<CR>
-        vmap <Leader>y :.w !pbcopy<CR><CR>
-        nmap <Leader>y :.w !pbcopy<CR><CR>
+        vmap <Leader>y :w !pbcopy<CR><CR>
+        nmap <Leader>y :w !pbcopy<CR><CR>
         nmap <Leader>d :.!pbcopy<CR><CR>
     else
         let g:netrw_browsex_viewer = "xdg-open"
