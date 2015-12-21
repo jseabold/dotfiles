@@ -16,7 +16,7 @@ $if mode=vi
     # these are for vi-insert mode
     "\e[A": history-search-backward
     "\e[B": history-search-forward
-    "ii": vi-movement-mode
+    "jk": vi-movement-mode
     "\C-w": backward-kill-word
     "\C-p": history-search-backward
     "\C-e": end-of-line
