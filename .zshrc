@@ -54,7 +54,7 @@ plugins=(git python aws autojump common-aliases git-extras jsontools urltools)
 
 # User configuration
 
-export PATH="${HOME}/.miniconda3/bin:${HOME}/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/pgsql/bin:${HOME}/.rbenv/bin"
+export PATH="${HOME}/.miniconda3/bin:${HOME}/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/pgsql/bin:${HOME}/.rbenv/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,10 +86,15 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR=vim
 source $HOME/.workrc
+source $HOME/.git_key
 
 # hit v to edit command line in vim
 # http://dougblack.io/words/zsh-vi-mode.html
 
+# Key Bindings
+# Lookup in /etc/termcap or /etc/terminfo else, you can get the right keycode
+# by typing ^v and then type the key or key combination you want to use.
+# "man zshzle" for the list of available actionss
 
 bindkey -v
 
@@ -99,6 +104,10 @@ bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
+bindkey '^f' forward-word            # C-Right
+bindkey '^b' backward-word           # C-Left
+bindkey '^A' beginning-of-line       # Home
+bindkey '^E' end-of-line             # End
 
 export KEYTIMEOUT=1
 
@@ -109,5 +118,8 @@ alias workon="source activate"
 
 # i dynamically linked vim against this, so it needs to find it
 export LD_LIBRARY_PATH=${HOME}/.miniconda3/lib
+export DYLD_LIBRARY_PATH=/usr/local/gfortran/lib
 
 eval "$(rbenv init -)"
+
+alias nosetests="nosetests --nologcapture"
