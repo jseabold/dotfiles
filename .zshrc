@@ -123,3 +123,8 @@ export DYLD_LIBRARY_PATH=/usr/local/gfortran/lib
 eval "$(rbenv init -)"
 
 alias nosetests="nosetests --nologcapture"
+
+export NPM_PACKAGES="${HOME}/.npm-packages"
+export PATH="$NPM_PACKAGES/bin:$PATH"
+unset MANPATH
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
