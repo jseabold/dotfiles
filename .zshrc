@@ -115,6 +115,8 @@ source ~/.awskeys
 
 # conda specific stuff
 alias workon="source activate"
+alias sadpanda="source deactivate"
+alias diediedie="source deactivate"
 
 # i dynamically linked vim against this, so it needs to find it
 export LD_LIBRARY_PATH=${HOME}/.miniconda3/lib
@@ -128,3 +130,6 @@ export NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$NPM_PACKAGES/bin:$PATH"
 unset MANPATH
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+export SCALA_HOME="${HOME}/.local/scala-2.11.8/"
+export PATH=$PATH:$SCALA_HOME/bin
