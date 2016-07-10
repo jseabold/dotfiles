@@ -51,7 +51,6 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git python aws autojump common-aliases git-extras jsontools urltools)
 
-
 # User configuration
 
 export PATH="${HOME}/.miniconda3/bin:${HOME}/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/pgsql/bin:${HOME}/.rbenv/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
@@ -85,8 +84,15 @@ source $ZSH/oh-my-zsh.sh
 #
 
 export EDITOR=vim
-source $HOME/.workrc
-source $HOME/.git_key
+if [[ -a $HOME/.workrc ]]; then
+    source $HOME/.workrc
+fi
+if [[ -a $HOME/.git_key ]]; then
+    source $HOME/.git_key
+fi
+if [[ -a $HOME/.go ]]; then
+    source $HOME/.go
+fi
 
 # hit v to edit command line in vim
 # http://dougblack.io/words/zsh-vi-mode.html
@@ -111,8 +117,6 @@ bindkey '^E' end-of-line             # End
 
 export KEYTIMEOUT=1
 
-source ~/.awskeys
-
 # conda specific stuff
 alias workon="source activate"
 alias sadpanda="source deactivate"
@@ -133,3 +137,5 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 export SCALA_HOME="${HOME}/.local/scala-2.11.8/"
 export PATH=$PATH:$SCALA_HOME/bin
+
+alias pyclean="find . | grep -E \"(__pycache__|\.pyc|\.pyo$)\" | xargs rm -rf"
