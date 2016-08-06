@@ -49,7 +49,8 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python aws autojump common-aliases git-extras jsontools urltools)
+plugins=(git python aws autojump common-aliases git-extras jsontools urltools tmux)
+export ZSH_TMUX_AUTOSTART=true
 
 # User configuration
 
@@ -117,16 +118,22 @@ bindkey '^E' end-of-line             # End
 
 export KEYTIMEOUT=1
 
+if [[ -a $HOME/.awskeys ]]; then
+    source $HOME/.awskeys
+fi
+
 # conda specific stuff
 alias workon="source activate"
 alias sadpanda="source deactivate"
 alias diediedie="source deactivate"
 
 # i dynamically linked vim against this, so it needs to find it
-export LD_LIBRARY_PATH=${HOME}/.miniconda3/lib
+# export LD_LIBRARY_PATH=${HOME}/.miniconda3/lib
 export DYLD_LIBRARY_PATH=/usr/local/gfortran/lib
 
-eval "$(rbenv init -)"
+if ! type rbenv &> /dev/null; then
+    eval "$(rbenv init -)"
+fi
 
 alias nosetests="nosetests --nologcapture"
 
