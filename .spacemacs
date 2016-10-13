@@ -37,9 +37,11 @@ values."
      github
      ;; company-mode
      ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+            shell-default-position 'bottom
+            shell-enable-smart-eshell t
+            shell-default-shell 'multi-term
+            )
      ;; spell-checking
      syntax-checking
      ;; version-control
@@ -248,7 +250,10 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq-default evil-escape-key-sequence "jk")
+  (setq-default
+   evil-escape-key-sequence "jk"
+   multi-term-program "/usr/local/bin/zsh"
+   )
   ;;  show line at 80 columns for Python files
   (add-hook 'python-mode-hook (lambda ()
                                 (fci-mode)
@@ -307,9 +312,13 @@ you should place your code here."
    (quote
     ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
  '(magit-diff-use-overlays nil)
+ '(nrepl-message-colors
+   (quote
+    ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (zenburn-theme monokai-theme helm-company helm-c-yasnippet flycheck-pos-tip pos-tip flycheck company-statistics company-go company-anaconda company auto-yasnippet yasnippet ac-ispell auto-complete mmm-mode markdown-toc markdown-mode magit-gh-pulls go-eldoc go-mode github-search github-clone github-browse-file gist gh marshal logito pcache ht gh-md dockerfile-mode docker json-mode tablist docker-tramp json-snatcher json-reformat yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc ess-smart-equals ess-R-object-popup ess-R-data-view ctable ess julia-mode cython-mode anaconda-mode pythonic uuidgen toc-org smeargle orgit org org-plus-contrib org-bullets magit-gitflow link-hint helm-gitignore request gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link eyebrowse evil-visual-mark-mode evil-unimpaired evil-magit magit magit-popup git-commit with-editor evil-ediff dumb-jump f column-enforce-mode ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline solarized-theme smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+    (xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help zenburn-theme monokai-theme helm-company helm-c-yasnippet flycheck-pos-tip pos-tip flycheck company-statistics company-go company-anaconda company auto-yasnippet yasnippet ac-ispell auto-complete mmm-mode markdown-toc markdown-mode magit-gh-pulls go-eldoc go-mode github-search github-clone github-browse-file gist gh marshal logito pcache ht gh-md dockerfile-mode docker json-mode tablist docker-tramp json-snatcher json-reformat yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc ess-smart-equals ess-R-object-popup ess-R-data-view ctable ess julia-mode cython-mode anaconda-mode pythonic uuidgen toc-org smeargle orgit org org-plus-contrib org-bullets magit-gitflow link-hint helm-gitignore request gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link eyebrowse evil-visual-mark-mode evil-unimpaired evil-magit magit magit-popup git-commit with-editor evil-ediff dumb-jump f column-enforce-mode ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe use-package spacemacs-theme spaceline solarized-theme smooth-scrolling restart-emacs rainbow-delimiters quelpa popwin persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move bracketed-paste auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+ '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
