@@ -1,0 +1,50 @@
+# R / RPy
+# adding R path for rpy installation
+if [ -d /usr/local/lib64/R/bin ]; then
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib64/R/bin
+elif [ -d ~/.local/lib/R/bin ]; then
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib/R/bin:~/.local/lib/R/lib64/R/lib/
+    export PATH=$PATH:~/.local/lib/R/bin
+fi
+export R_HISTFILE=~/.Rhistory
+export R_HISTSIZE='1500'
+
+# python
+
+export PYTHONSTARTUP=/home/skipper/.pystartup
+# building numpy/scipy reliably
+export LAPACK=~/.local/lib/libopenblas.a
+export BLAS=~/.local/lib/libopenblas.a
+
+
+# postgres
+
+if [ -d /usr/lib/postgresql/9.5/bin ]; then
+    export PATH=$PATH:/usr/lib/postgresql/9.5/bin
+fi
+
+# random
+
+export X12PATH="/home/skipper/src/x12arima"
+export X13PATH="/home/skipper/src/x13arima"
+
+# system
+
+export EDITOR=vim
+export PATH=$PATH:/home/skipper/.local/bin
+export PDFVIEWER=okular
+export CHROME_BIN=chromium-browser
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/:~/.local/lib
+
+
+function add_path() {
+    if [[ -d $1 ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+add_path /usr/local/go/bin
+add_path $HOME/.miniconda3/bin
+add_path $HOME/.local/bin
+add_path /usr/local/bin
+add_path /Applications/Postgres.app/Contents/Versions/9.4/bin

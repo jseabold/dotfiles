@@ -54,7 +54,6 @@ export ZSH_TMUX_AUTOSTART=true
 
 # User configuration
 
-export PATH="${HOME}/.miniconda3/bin:${HOME}/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/pgsql/bin:${HOME}/.rbenv/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,17 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-export EDITOR=vim
-if [[ -a $HOME/.workrc ]]; then
-    source $HOME/.workrc
-fi
-if [[ -a $HOME/.git_key ]]; then
-    source $HOME/.git_key
-fi
-if [[ -a $HOME/.go ]]; then
-    source $HOME/.go
-fi
-
 # hit v to edit command line in vim
 # http://dougblack.io/words/zsh-vi-mode.html
 
@@ -118,31 +106,16 @@ bindkey '^E' end-of-line             # End
 
 export KEYTIMEOUT=1
 
-if [[ -a $HOME/.awskeys ]]; then
-    source $HOME/.awskeys
-fi
+function source_file {
+    if [[ -a $HOME/$1 ]]; then
+        source $HOME/$1
+    fi
+}
 
-# conda specific stuff
-alias workon="source activate"
-alias sadpanda="source deactivate"
-alias diediedie="source deactivate"
-
-# i dynamically linked vim against this, so it needs to find it
-# export LD_LIBRARY_PATH=${HOME}/.miniconda3/lib
-export DYLD_LIBRARY_PATH=/usr/local/gfortran/lib
-
-if ! type rbenv &> /dev/null; then
-    eval "$(rbenv init -)"
-fi
-
-alias nosetests="nosetests --nologcapture"
-
-export NPM_PACKAGES="${HOME}/.npm-packages"
-export PATH="$NPM_PACKAGES/bin:$PATH"
-unset MANPATH
-export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
-
-export SCALA_HOME="${HOME}/.local/scala-2.11.8/"
-export PATH=$PATH:$SCALA_HOME/bin
-
-alias pyclean="find . | grep -E \"(__pycache__|\.pyc|\.pyo$)\" | xargs rm -rf"
+source_file .awskeys
+source_file .aliases
+source_file .functions
+source_file .exports
+source_file .workrc
+source_file .git_key
+source_file .go

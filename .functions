@@ -1,0 +1,52 @@
+#pushd to directory for python package
+function pushdp {
+pushd `python -c "import os; import $1; print (os.path.dirname($1.__file__))"`
+}
+
+function rmpy {
+    if [ -z "$1" ]; then 
+        echo "Aren't you glad I didn't delete everything?";
+    else
+        sudo rm -rf /usr/local/lib/python2.7/dist-packages/$1*
+    fi
+}
+
+function parse_git_branch {
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return 
+    echo "("${ref#refs/heads/}")"
+}
+# last time anacron weekly was run
+function lastanacron {
+    echo "hourly"
+    stat --format "%y" /var/spool/anacron/cron.hourly
+    echo "daily"
+    stat --format "%y" /var/spool/anacron/cron.daily
+    echo "weekly"
+    stat --format "%y" /var/spool/anacron/cron.weekly
+}
+
+if [ -d ~/.anacron ]; then
+    function lastuseranacron {
+    echo "daily"
+    stat --format "%y" ~/.anacron/cron.daily
+    }
+fi
+
+function findends {
+    echo
+    find . -type f -name *.$1
+}
+
+function countdown(){
+   date1=$((`date +%s` + $1)); 
+   while [ "$date1" -ne `date +%s` ]; do 
+     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+   done
+}
+
+function stopwatch(){
+  date1=`date +%s`; 
+   while true; do 
+    echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r"; 
+   done
+}

@@ -1,0 +1,97 @@
+# conda 
+
+alias workon="source activate"
+alias sadpanda="source deactivate"
+alias diediedie="source deactivate"
+
+# python
+
+alias nosetests="nosetests --nologcapture"
+alias pyclean="find . | grep -E \"(__pycache__|\.pyc|\.pyo$)\" | xargs rm -rf"
+alias nosefast="nosetests -a '!slow'"
+
+# R
+
+alias R='R --no-save'
+
+# javascript
+
+alias eslint="npm run eslint"
+
+# editors
+
+alias emacs="emacs -nw"
+
+# navigation
+
+alias c='clear'
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../../;'
+alias ll='ls -alF'
+alias la='ls -A'
+
+# enable color support of ls
+
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls -hCF --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+# install libnotify-bin for this one
+# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias alert='kdialog --passivepopup "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# let make always run in parallel
+
+cpu_count=`nproc`
+alias make='make -j $cpu_count'
+
+# HTTP
+
+alias pyserv='python -m SimpleHTTPServer 8888'
+alias pyftp='python -m pyftpdlib -w'
+alias scanftp='sudo python ~/src/scripts/ftpscan_server.py'
+alias ping='ping -c 5'
+alias ports='netstat -tulanp'
+
+# System
+
+alias apt-get="sudo apt-get"
+alias meminfo='free -m -l -t'
+
+## get top process eating memory
+
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+## get top process eating cpu ##
+
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+## Get server cpu info ##
+
+alias cpuinfo='lscpu'
+
+## older system use /proc/cpuinfo ##
+##alias cpuinfo='less /proc/cpuinfo' ##
+## get GPU ram on desktop / laptop## 
+
+alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+alias df='df -H'
+alias du='du -ch'
+alias cpProgress="rsync --progress -ravz"
+alias edit=vim
+
+
+alias version='lsb_release -a'
