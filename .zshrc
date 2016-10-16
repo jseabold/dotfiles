@@ -119,3 +119,4 @@ source_file .exports
 source_file .workrc
 source_file .git_key
 source_file .go
+source_file .dockerfunc
