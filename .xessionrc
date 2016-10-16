@@ -1,0 +1,2 @@
+# run local xhost
+xhost local:root

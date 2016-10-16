@@ -1,0 +1,49 @@
+# Heavily inpsired by https://github.com/jessfraz/dotfiles/blob/master/.dockerfunc
+
+export DOCKER_REPO_PREFIX=jseabold
+
+
+dcleanup(){
+	docker rm $(docker ps -aq 2>/dev/null) 2>/dev/null
+	docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+	docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+
+del_stopped() {
+	local name=$1
+	local state=$(docker inspect --format "{{.State.Running}}" $name 2>/dev/null)
+
+	if [[ "$state" == "false" ]]; then
+		docker rm $name
+	fi
+}
+
+chrome() {
+    local proxy=
+    local map=
+    local args=$@
+    del_stopped chrome
+	sudo docker run -d \
+        --net host \
+		--memory 3gb \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v /tmp/.X11-unix:/tmp/.X11-unix \
+		-e DISPLAY=unix$DISPLAY \
+		-v $HOME/Downloads:/root/Downloads \
+		-v $HOME/Pictures:/root/Pictures \
+		-v $HOME/.chrome:/data \
+		-v /dev/shm:/dev/shm \
+		-v /etc/hosts:/etc/hosts \
+		--security-opt seccomp:/etc/docker/seccomp/chrome.json \
+		--device /dev/snd \
+		--device /dev/dri \
+		--device /dev/video0 \
+		--device /dev/usb \
+		--device /dev/bus/usb \
+		--group-add audio \
+		--group-add video \
+		--name chrome \
+		${DOCKER_REPO_PREFIX}/chrome --user-data-dir=/data \
+		--proxy-server="$proxy" \
+		--host-resolver-rules="$map" $args
+}
