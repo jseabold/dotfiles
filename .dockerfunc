@@ -47,3 +47,11 @@ chrome() {
 		--proxy-server="$proxy" \
 		--host-resolver-rules="$map" $args
 }
+
+# enter host on mac
+# #get a privileged container with access to Docker daemon
+# docker run --privileged -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker alpine sh
+# #run a container with full root access to MobyLinuxVM and no seccomp profile (so you can mount stuff)
+# docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh
+# #switch to host FS
+# chroot /host
