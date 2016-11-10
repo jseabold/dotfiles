@@ -55,3 +55,8 @@ chrome() {
 # docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh
 # #switch to host FS
 # chroot /host
+#
+
+pdflatex () {
+    docker run --rm -i --user="$(id -u):(id -g)" -v $(PWD):/output jseabold/latex "$@"
+}
