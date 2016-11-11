@@ -43,8 +43,14 @@ function add_path() {
     fi
 }
 
+function prepend_path() {
+    if [[ -d $1 ]]; then
+        export PATH=$1:$PATH
+    fi
+}
+
 add_path /usr/local/go/bin
-add_path $HOME/.miniconda3/bin
+prepend_path $HOME/.miniconda3/bin
 add_path $HOME/.local/bin
 add_path /usr/local/bin
 add_path /Applications/Postgres.app/Contents/Versions/9.4/bin
