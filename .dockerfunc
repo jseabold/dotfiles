@@ -19,6 +19,7 @@ del_stopped() {
 }
 
 chrome() {
+    xhost local:root
     local proxy=
     local map=
     local args=$@
