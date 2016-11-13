@@ -23,7 +23,7 @@ chrome() {
     local map=
     local args=$@
     del_stopped chrome
-	sudo docker run -d \
+	docker run -d \
         --net host \
 		--memory 3gb \
 		-v /etc/localtime:/etc/localtime:ro \
@@ -43,7 +43,7 @@ chrome() {
 		--group-add audio \
 		--group-add video \
 		--name chrome \
-		${DOCKER_REPO_PREFIX}/chrome --user-data-dir=/data \
+		jess/chrome --user-data-dir=/data \
 		--proxy-server="$proxy" \
 		--host-resolver-rules="$map" $args
 }
