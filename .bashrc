@@ -68,10 +68,15 @@ function source_file {
     fi
 }
 
-source_file .aliases
-source_file .postgres
 source_file .awskeys
+source_file .postgres
+source_file .aliases
 source_file .functions
+source_file .exports
+source_file .workrc
+source_file .git_key
+source_file .go
+source_file .dockerfunc
 
 PS1="[\w] \$(parse_git_branch)\n|\# \$ "
 PS2="\[\033[1;33m...\[\033[0m\]"
