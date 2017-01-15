@@ -62,10 +62,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source $HOME/.aliases
-source $HOME/.postgres
-source $HOME/.awskeys
-source $HOME/.functions
+function source_file {
+    if [[ -a $HOME/$1 ]]; then
+        source $HOME/$1
+    fi
+}
+
+source_file .aliases
+source_file .postgres
+source_file .awskeys
+source_file .functions
 
 PS1="[\w] \$(parse_git_branch)\n|\# \$ "
 PS2="\[\033[1;33m...\[\033[0m\]"
