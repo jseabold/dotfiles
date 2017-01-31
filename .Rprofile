@@ -1,7 +1,8 @@
 # Hard code US repo for CRAN
 r <- getOption("repos")
 r["CRAN"] <- "http://cran.us.r-project.org"
-options(repos = r)
+options(repos = r,
+        stringsAsFactors = FALSE)
 rm(r)
 
 options(prompt="R> ", digits=4, show.signif.stars=FALSE, "pdfviewer"="okular",
