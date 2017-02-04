@@ -120,3 +120,4 @@ source_file .workrc
 source_file .git_key
 source_file .go
 source_file .dockerfunc
+source_file .localpaths
