@@ -2,6 +2,8 @@
 	email = jsseabold@gmail.com
 	name = Skipper Seabold
 [alias]
+    pull = pull --rebase-preserve
+    fetch = fetch --prune
 	recent = log -n 10 --oneline --graph
 	st = status -s -uno
     co = checkout
