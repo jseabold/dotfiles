@@ -17,7 +17,6 @@
 	summary = true
 [core]
 	editor = vim -f
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+[credential]
+    helper = !aws --profile jseabold codecommit credential-helper $@
+	UseHttpPath = true
