@@ -34,7 +34,7 @@ fi
 
 function findends {
     echo
-    find . -type f -name *.$1
+    find . -type f -name "*.$1"
 }
 
 function countdown(){
