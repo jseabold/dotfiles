@@ -59,7 +59,7 @@ chrome() {
 #
 
 pdflatex () {
-    docker run --rm -i --user="$(id -u):(id -g)" -v $(PWD):/output jseabold/latex "$@"
+    docker run --rm -i --user="$(id -u):$(id -g)" -v $(PWD):/output jseabold/latex "$@"
 }
 
 docker-names () {
