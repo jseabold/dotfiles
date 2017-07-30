@@ -1,0 +1,11 @@
+[DEFAULT]
+
+bantime = 3600
+findtime = 3600
+maxretry = 5
+banaction = iptables-multiport
+ignoreip = 127.0.0.1/8 192.168.1.0/24
+
+
+[sshd]
+enabled = true

@@ -1,6 +1,6 @@
 .PHONY: all dotfiles etc
 
-all: dotfiles etc
+all: dotfiles etc fail2ban
 
 dotfiles:
 	for file in $(shell find $(CURDIR) -name ".*" -not -name ".gitignore" -not -name ".git"); do \
@@ -16,3 +16,6 @@ etc:
 	done
 	systemctl --user daemon-reload
 	sudo systemctl daemon-reload
+
+fail2ban:
+	if [ -d "/etc/fail2ban" ]; then sudo ln -s $$(pwd)/jail.local /etc/fail2ban/jail.local; fi
