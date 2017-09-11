@@ -1,0 +1,30 @@
+-- Official docs: http://www.postgresql.org/docs/9.3/static/app-psql.html
+-- Unofficial docs: http://robots.thoughtbot.com/improving-the-command-line-postgres-experience
+
+-- Don't show message on startup
+\set QUIET 1
+\pset null '[NULL]'
+
+-- Show how long each query takes to execute
+\timing
+
+-- Use best available output format
+--\x auto
+-- Verbose error reports
+\set VERBOSITY verbose
+-- Separate history per database
+\set HISTFILE ~/.psql_history- :DBNAME
+-- only store commands once in history
+\set HISTCONTROL ignoredups
+-- autocomplete keywrods in upper-case even if started in lower case
+\set COMP_KEYWORD_CASE upper
+\unset QUIET
+
+-- this messes up terminal keyboard shortcuts
+-- \set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '
+-- \set PROMPT2 '[more] %R > '
+
+-- \set running
+-- 'SELECT pid, trim(user_name), starttime, substring(query,1,20)
+-- FROM stv_recents
+-- WHERE status=\'Running\' ORDER BY 1;'
