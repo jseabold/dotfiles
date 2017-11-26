@@ -72,5 +72,5 @@ docker-names () {
 
 vpn () {
     del_stopped vpn
-    docker run --cap-add NET_ADMIN --net host --device /dev/net/tun -d --name vpn jseabold/pia-openvpn
+    docker run --cap-add NET_ADMIN --net host --device /dev/net/tun --dns 209.222.18.222 --dns 209.222.18.218 -d --name vpn jseabold/pia-openvpn
 }
