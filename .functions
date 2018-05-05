@@ -50,3 +50,8 @@ function stopwatch(){
     echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r"; 
    done
 }
+
+function fix-mouse(){
+  sudo modprobe -r psmouse
+  sudo modprobe psmouse
+}
