@@ -27,6 +27,12 @@ fi
 export X12PATH="/home/skipper/src/x12arima"
 export X13PATH="/home/skipper/src/x13arima"
 
+# nvm
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # system
 
 export EDITOR=vim
