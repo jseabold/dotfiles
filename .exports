@@ -53,3 +53,4 @@ prepend_path $HOME/.miniconda3/bin
 add_path $HOME/.local/bin
 add_path /usr/local/bin
 add_path /Applications/Postgres.app/Contents/Versions/9.4/bin
+add_path $HOME/.npm-packages/bin
