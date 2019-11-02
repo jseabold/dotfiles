@@ -77,6 +77,7 @@ source_file .workrc
 source_file .git_key
 source_file .go
 source_file .dockerfunc
+source_file .awskeys
 
 PS1="[\w] \$(parse_git_branch)\n|\# \$ "
 PS2="\[\033[1;33m...\[\033[0m\]"
