@@ -97,3 +97,4 @@ alias edit=vim
 
 
 alias version='lsb_release -a'
+alias page-files='ll -t | less'
