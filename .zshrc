@@ -125,3 +125,8 @@ source_file .apikeys
 
 PROMPT='%{%f%b%k%}$(build_prompt)
 | $ '
+
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_VERIFY
