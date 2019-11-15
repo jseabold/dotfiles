@@ -21,6 +21,7 @@ alias eslint="npm run eslint"
 # editors
 
 alias emacs="emacs -nw"
+alias eshell="emacs -f eshell"
 
 # navigation
 
