@@ -95,7 +95,6 @@ bindkey -v
 
 bindkey '^P' up-history
 bindkey '^N' down-history
-bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
@@ -133,11 +132,18 @@ setopt HIST_VERIFY
 
 if [[ "$PAGER" = less ]]
 then
+    # start blink
     export LESS_TERMCAP_mb=$'\e[1;32m'
+    # start bold
     export LESS_TERMCAP_md=$'\e[1;32m'
+    # turn off bold, blink, and underline
     export LESS_TERMCAP_me=$'\e[0m'
+    # stop standout
     export LESS_TERMCAP_se=$'\e[0m'
+    # start standout
     export LESS_TERMCAP_so=$'\e[01;33m'
+    # stop underline
     export LESS_TERMCAP_ue=$'\e[0m'
+    # start underline
     export LESS_TERMCAP_us=$'\e[1;4;31m'
 fi
