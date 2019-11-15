@@ -1,2 +1,5 @@
-bind-key -t vi-copy y copy-pipe "xclip -selection c > /dev/null"
-bind-key p run "xclip -o -sel clip | tmux load-buffer - ; tmux paste-buffer"
+# -*- mode: conf-*-
+unbind y
+bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -selection c > /dev/null"
+unbind p
+bind p run "xclip -o -sel clip | tmux load-buffer - ; tmux paste-buffer"

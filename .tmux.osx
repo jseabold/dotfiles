@@ -1,6 +1,9 @@
-bind-key -t vi-copy y copy-pipe "pbcopy"
-bind-key p run "pbpaste | tmux load-buffer - ; tmux paste-buffer"
+unbind y
+bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
+unbind p
+bind p run "pbpaste | tmux load-buffer - ; tmux paste-buffer"
 
 # make pbcopy/pbpaste work again after brew installing reattach-to-user-namespace
+# This may not be necessary with newer tmux
 set -g default-shell $SHELL
 set -g default-command "reattach-to-user-namespace -l ${SHELL}"
