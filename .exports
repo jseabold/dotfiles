@@ -36,6 +36,7 @@ export NVM_DIR="$HOME/.nvm"
 # system
 
 export EDITOR=vim
+export SUDO_EDITOR=rvim
 export PATH=$PATH:/home/skipper/.local/bin
 export PDFVIEWER=okular
 export CHROME_BIN=chromium-browser
