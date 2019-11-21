@@ -16,6 +16,7 @@ i3:
 
 etc:
 	if [ ! -d "/etc/docker/seccomp" ]; then sudo mkdir /etc/docker/seccomp; fi
+	if [ ! -d "/etc/acpi/actions" ]; then sudo mkdir /etc/acpi/actions; fi
 	for file in $(shell find $(CURDIR)/etc -type f -not -name ".*.swp"); do \
 		f=$$(echo $$file | sed -e 's|$(CURDIR)||'); \
 		sudo ln -s $$file $$f; \
