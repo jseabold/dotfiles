@@ -22,3 +22,6 @@
     path = /Users/skipper/work/.gitconfig
 [include]
     path = /Users/skipper/work/.gitproxy
+[url "https://github.com/jseabold/"]
+    insteadOf = js:
+
