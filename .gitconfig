@@ -18,6 +18,7 @@
     summary = true
 [core]
     editor = vim -f
-[credential]
-    helper = !aws --profile jseabold codecommit credential-helper $@
-    UseHttpPath = true
+[includeIf "gitdir:/Users/skipper/work/"]
+    path = /Users/skipper/work/.gitconfig
+[include]
+    path = /Users/skipper/work/.gitproxy
