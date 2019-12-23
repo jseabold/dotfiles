@@ -1,0 +1,10 @@
+default_channels:
+  - conda-forge
+  - defaults
+
+show_channel_urls: True
+
+create_default_packages:
+  - python=3.7
+  - ipython
+  - pip
