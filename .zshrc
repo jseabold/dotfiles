@@ -121,6 +121,7 @@ source_file .go
 source_file .dockerfunc
 source_file .localpaths
 source_file .apikeys
+source_file .work
 
 PROMPT='%{%f%b%k%}$(build_prompt)
 | $ '
