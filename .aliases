@@ -1,8 +1,6 @@
 # conda 
 
-alias workon="source activate"
-alias sadpanda="source deactivate"
-alias diediedie="source deactivate"
+alias workon="conda activate"
 
 # python
 
