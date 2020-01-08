@@ -20,7 +20,7 @@ alias eslint="npm run eslint"
 
 if [ -x /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
     alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
-    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -f eshell"
+    alias eshell="/Applications/Emacs.app/Contents/MacOS/Emacs -f eshell"
 else
     alias emcas="emcas -nw"
     alias eshell="emacs -f eshell"
