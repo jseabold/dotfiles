@@ -55,3 +55,7 @@ function fix-mouse(){
   sudo modprobe -r psmouse
   sudo modprobe psmouse
 }
+
+function pretty_csv {
+    perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
+}
