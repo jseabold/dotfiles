@@ -74,3 +74,7 @@ vpn () {
     del_stopped vpn
     docker run --cap-add NET_ADMIN --net host --device /dev/net/tun -d --name vpn jseabold/pia-openvpn
 }
+
+postgres-docker {} {
+    docker run -p 5432:5432 postgres:12.1
+}
