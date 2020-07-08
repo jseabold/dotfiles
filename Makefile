@@ -1,6 +1,6 @@
-.PHONY: all dotfiles etc
+.PHONY: all dotfiles etc ipython
 
-all: dotfiles etc fail2ban
+all: dotfiles etc fail2ban ipython
 
 dotfiles:
 	for file in $(shell find $(CURDIR) -name ".*" -not -name ".gitignore" -not -name ".git"); do \
@@ -26,3 +26,9 @@ etc:
 
 fail2ban:
 	if [ -d "/etc/fail2ban" ]; then sudo ln -s $$(pwd)/jail.local /etc/fail2ban/jail.local; fi
+
+ipython:
+	for file in $(shell find $(CURDIR)/ipython/profile_default/startup -name "*.py"); do \
+		f=$$(basename $$file); \
+		ln -sfn $$file $(HOME)/.ipython/profile_default/startup/$$f; \
+	done;
