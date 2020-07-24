@@ -59,3 +59,7 @@ function fix-mouse(){
 function pretty_csv {
     perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
 }
+
+function light_theme {
+    export SOLARIZED_THEME=light && source ~/.zshrc
+}
