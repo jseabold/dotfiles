@@ -40,7 +40,6 @@ try:
 
     @register_line_magic
     def columns(line):
-        c = get_ipython()  # noqa
         try:
             schema, table = line.split('.')
         except ValueError:
@@ -53,7 +52,30 @@ try:
                            .select_dtypes('object')
                            .apply(lambda col: col.str.strip()))))
 
-    del sql, SELECT, preview, columns
+    @register_line_magic
+    def tables(line):
+        if line:
+            schema = line.strip()
+        else:
+            schema = None
 
+        tables = pd.DataFrame(engine.dialect.get_table_names(engine.connect(),
+                                                             schema=schema),
+                              columns=['views'])
+        return tables
+
+    @register_line_magic
+    def views(line):
+        if line:
+            schema = line.strip()
+        else:
+            schema = None
+
+        views = pd.DataFrame(engine.dialect.get_view_names(engine.connect(),
+                                                           schema=schema),
+                             columns=['views'])
+        return views
+
+    del sql, SELECT, preview, columns, tables, views
 except ImportError:
     pass
