@@ -63,3 +63,11 @@ function pretty_csv {
 function light_theme {
     export SOLARIZED_THEME=light && source ~/.zshrc
 }
+
+function movie_brightness {
+    xrandr --output LVDS-1 --brightness .5
+}
+
+function normal_brightness {
+    xrandr --output LVDS-1 --brightness 1.0
+}
