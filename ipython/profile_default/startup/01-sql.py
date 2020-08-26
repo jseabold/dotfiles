@@ -61,7 +61,7 @@ try:
 
         tables = pd.DataFrame(engine.dialect.get_table_names(engine.connect(),
                                                              schema=schema),
-                              columns=['views'])
+                              columns=['tables'])
         return tables
 
     @register_line_magic
