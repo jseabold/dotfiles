@@ -13,10 +13,11 @@ if 'IPKernelApp' in c.config:  # noqa
     except ImportError:
         pass
 
-    from IPython.core.display import display, HTML
-
     # make notebooks take up most of the screen width
-    display(HTML("<style>.container { width: 98% !important; }</style>"))
+    c.run_cell(
+        "from IPython.core.display import display, HTML\n"
+        "display(HTML('<style>.container { width: 98% !important; }</style>'))"
+    )
 
     # this startup file needs to run before any other plotting configuration
     # or it can overwrite those settings
@@ -24,3 +25,4 @@ if 'IPKernelApp' in c.config:  # noqa
 
     pd.options.display.float_format = lambda x: f"{x:.1f}"
     pd.options.display.max_rows = 100
+    del c
