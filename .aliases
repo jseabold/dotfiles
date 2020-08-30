@@ -22,7 +22,7 @@ if [ -x /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
     alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
     alias eshell="/Applications/Emacs.app/Contents/MacOS/Emacs -f eshell"
 else
-    alias emcas="emcas -nw"
+    alias emacs="emacs -nw"
     alias eshell="emacs -f eshell"
 fi;
 
