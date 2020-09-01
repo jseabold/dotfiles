@@ -123,6 +123,8 @@ source_file .localpaths
 source_file .apikeys
 source_file .work
 
+# THIS will hide the user information in the prompt
+export DEFAULT_USER=$USER
 PROMPT='%{%f%b%k%}$(build_prompt)
 | $ '
 
@@ -148,3 +150,5 @@ then
     # start underline
     export LESS_TERMCAP_us=$'\e[1;4;31m'
 fi
+
+bindkey -v
