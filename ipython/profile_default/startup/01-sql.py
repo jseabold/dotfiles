@@ -76,6 +76,16 @@ try:
                              columns=['views'])
         return views
 
-    del sql, SELECT, preview, columns, tables, views
+    @register_line_magic
+    def explain(line):
+        with open(line.strip()) as sql_file:
+            sql_in = sql_file.read().strip()
+            # this may not work outside of teradata, depends on returned
+            # format
+            explained = c.run_cell_magic('sql', '', f'EXPLAIN {sql_in}')
+            print('\n'.join(explained['Explanation']))
+
+    del sql, SELECT, preview, columns, tables, views, explain
+
 except ImportError:
     pass
