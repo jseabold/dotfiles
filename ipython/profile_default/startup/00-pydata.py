@@ -1,6 +1,17 @@
 import numpy as np
 import pandas as pd
-from scipy import constants, stats  # noqa
+try:
+    from scipy import constants, stats  # noqa
+
+    def lbs_to_kg(lbs):
+        return constants.lb * lbs
+
+except ImportError:
+    pass
+try:
+    import pandas_selectable # noqa
+except ImportError:
+    pass
 
 np.set_printoptions(suppress=True, precision=4)
 
