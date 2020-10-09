@@ -74,7 +74,7 @@ try:
         views = pd.DataFrame(engine.dialect.get_view_names(engine.connect(),
                                                            schema=schema),
                              columns=['views'])
-        return views
+        return views.sort_values('views')
 
     @register_line_magic
     def explain(line):
