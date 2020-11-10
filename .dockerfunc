@@ -71,8 +71,7 @@ docker-names () {
 # cat /sys/fs/cgroup/memory/memory.limit_in_bytes
 
 vpn () {
-    del_stopped vpn
-    docker run --cap-add NET_ADMIN --net host --device /dev/net/tun -d --name vpn jseabold/pia-openvpn
+    docker run --rm --cap-add NET_ADMIN --net host --device /dev/net/tun -d --name vpn jseabold/pia-openvpn
 }
 
 postgres-docker () {
