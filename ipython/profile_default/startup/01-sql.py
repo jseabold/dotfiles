@@ -1,5 +1,3 @@
-# NOTE: if you're using teradatasql, this needs to be loaded before
-# any threads are spawned (which happens when you import matplotlib.pyplot)
 import os
 
 from IPython.core.magic import register_line_magic, register_line_cell_magic
@@ -85,7 +83,26 @@ try:
             explained = c.run_cell_magic('sql', '', f'EXPLAIN {sql_in}')
             print('\n'.join(explained['Explanation']))
 
-    del sql, SELECT, preview, columns, tables, views, explain
+    @register_line_magic
+    def sql_file(line):
+        def maybe_str_strip(x):
+            try:
+                return str.strip(x)
+            except:  # noqa
+                return x
+
+        with open(line.strip()) as sql_file:
+            sql_in = sql_file.read().strip()
+            # this may not work outside of teradata, depends on returned
+            # format
+            try:
+                dta = c.run_cell_magic('sql', '', sql_in)
+            except Exception as exc:
+                raise(exc)
+
+        return dta.applymap(maybe_str_strip)
+
+    del sql, SELECT, preview, columns, tables, views, explain, sql_file
 
 except ImportError:
     pass
