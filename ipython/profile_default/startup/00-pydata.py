@@ -13,6 +13,9 @@ try:
 except ImportError:
     pass
 
+c = get_ipython()
+c.Completer.use_jedi = False  # so slow
+
 np.set_printoptions(suppress=True, precision=4)
 
 pd.options.display.float_format = lambda x: f'{x:.4f}'
