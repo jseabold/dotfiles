@@ -77,3 +77,8 @@ vpn () {
 postgres-docker () {
     docker run -p 5432:5432 postgres:12.1
 }
+
+unalias R
+R () {
+    docker run -it --rm --entrypoint R rocker/tidyverse:4.0.4
+}
