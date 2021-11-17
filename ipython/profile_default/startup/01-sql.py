@@ -21,11 +21,12 @@ try:
     @register_line_magic
     def preview(line):
         c = get_ipython()  # noqa
-        statement = (sa
-                     .select('*')
-                     .select_from(sa.text(line))
-                     .limit(5)
-                     .compile(bind=engine))
+        statement = str(
+            sa
+            .select('*')
+            .select_from(sa.text(line))
+            .limit(5)
+            .compile(bind=engine))
         return c.run_line_magic('sql', statement)
 
     @register_line_cell_magic
@@ -102,7 +103,7 @@ try:
 
         return dta.applymap(maybe_str_strip)
 
-    del sql, SELECT, preview, columns, tables, views, explain, sql_file
+    del sql, SELECT, preview, columns, tables, views, explain, sql_file, DATABASE_URL
 
 except ImportError:
     pass
