@@ -64,6 +64,13 @@ try:
         return tables
 
     @register_line_magic
+    def schemas():
+        insp = sa.inspec(engine)
+        schemas = insp.get_schema_names()
+        return pd.Series(schemas, name='schemas')
+
+
+    @register_line_magic
     def views(line):
         if line:
             schema = line.strip()
