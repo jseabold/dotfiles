@@ -1,4 +1,4 @@
-# conda 
+# conda
 
 alias workon="conda activate"
 
@@ -91,7 +91,7 @@ alias cpuinfo='lscpu'
 
 ## older system use /proc/cpuinfo ##
 ##alias cpuinfo='less /proc/cpuinfo' ##
-## get GPU ram on desktop / laptop## 
+## get GPU ram on desktop / laptop##
 
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 alias df='df -H'
@@ -102,3 +102,5 @@ alias edit=vim
 
 alias version='lsb_release -a'
 alias page-files='ll -t | less'
+
+alias k="kubectl"
