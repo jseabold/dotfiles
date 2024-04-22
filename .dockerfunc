@@ -80,5 +80,5 @@ postgres-docker () {
 
 unalias R
 R () {
-    docker run -it --rm --entrypoint R rocker/tidyverse:4.0.4
+    docker run -it --entrypoint R rocker/tidyverse:4.0.4
 }
