@@ -1,6 +1,7 @@
 # Hard code US repo for CRAN
 r <- getOption("repos")
-r["CRAN"] <- "http://cran.us.r-project.org"
+r["CRAN"] <- "https://cran.rstudio.com"
+
 options(repos = r,
         stringsAsFactors = FALSE)
 rm(r)
