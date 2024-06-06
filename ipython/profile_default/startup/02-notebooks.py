@@ -13,6 +13,11 @@ if 'IPKernelApp' in c.config:  # noqa
     except ImportError:
         pass
 
+    # https://github.com/ipython-contrib/ipython-markdown-inspector
+    c.InteractiveShellApp.extensions = [
+        'ipython_markdown_inspector'
+    ]
+
     # make notebooks take up most of the screen width
     c.run_cell(
         "from IPython.core.display import display, HTML\n"
